@@ -16,6 +16,38 @@ public class praticaGit {
         return count;
     }
 
+    // b. Método que retorna true se l tem elementos repetidos
+    public boolean hasRepeat(ArrayList<Integer> l){
+        for (int i=0; i<l.size(); i++){
+            for (int j=i+1; j<l.size(); j++){
+                if(l.get(i).equals(l.get(j))){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    //e) Método que retorna a união de l1 e l2
+
+    public ArrayList<Integer> union(ArrayList<Integer> l1, ArrayList<Integer> l2) {
+    ArrayList<Integer> resultado = new ArrayList<Integer>();
+
+    for (Integer elemento : l1) {
+        if (!resultado.contains(elemento)) {
+            resultado.add(elemento);
+        }
+    }
+
+    for (Integer elemento : l2) {
+        if (!resultado.contains(elemento)) {
+            resultado.add(elemento);
+        }
+    }
+
+    return resultado;
+}
+
     
 
 
