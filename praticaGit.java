@@ -71,3 +71,32 @@ public class praticaGit {
 
 
 }
+// c. Método que retorna o número de elementos repetidos em l
+    public int nroRepeat(ArrayList<Integer> l) {
+        if (l == null) return 0;
+        
+        Set<Integer> vistos = new HashSet<>();
+        Set<Integer> repetidos = new HashSet<>();
+        
+        for (Integer num : l) {
+            // Se não conseguiu adicionar aos vistos, é porque já existe (é repetido)
+            if (!vistos.add(num)) {
+                repetidos.add(num);
+            }
+        }
+        return repetidos.size();
+    }
+
+    // f. Método que retorna a intersecção de l1 e l2
+    public ArrayList<Integer> intersect(ArrayList<Integer> l1, ArrayList<Integer> l2) {
+        ArrayList<Integer> resultado = new ArrayList<>();
+        if (l1 == null || l2 == null) return resultado;
+        
+        for (Integer elemento : l1) {
+            // Verifica se está na l2 e se ainda não foi adicionado ao resultado
+            if (l2.contains(elemento) && !resultado.contains(elemento)) {
+                resultado.add(elemento);
+            }
+        }
+        return resultado;
+    }
