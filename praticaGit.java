@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class praticaGit {
+public class PraticaGit {
 
     // a. Método que retorna quantas ocorrências de um elemento estão na lista
     public static int nrOcorrencias(ArrayList<Integer> l, Integer el) {
@@ -17,10 +17,11 @@ public class praticaGit {
     }
 
     // b. Método que retorna true se l tem elementos repetidos
-    public boolean hasRepeat(ArrayList<Integer> l){
-        for (int i=0; i<l.size(); i++){
-            for (int j=i+1; j<l.size(); j++){
-                if(l.get(i).equals(l.get(j))){
+    public boolean hasRepeat(ArrayList<Integer> l) {
+        if (l == null) return false;
+        for (int i = 0; i < l.size(); i++) {
+            for (int j = i + 1; j < l.size(); j++) {
+                if (l.get(i).equals(l.get(j))) {
                     return true;
                 }
             }
@@ -28,29 +29,25 @@ public class praticaGit {
         return false;
     }
 
-    //e) Método que retorna a união de l1 e l2
-
+    // e. Método que retorna a união de l1 e l2
     public ArrayList<Integer> union(ArrayList<Integer> l1, ArrayList<Integer> l2) {
-    ArrayList<Integer> resultado = new ArrayList<Integer>();
-
-    for (Integer elemento : l1) {
-        if (!resultado.contains(elemento)) {
-            resultado.add(elemento);
+        ArrayList<Integer> resultado = new ArrayList<>();
+        if (l1 != null) {
+            for (Integer elemento : l1) {
+                if (!resultado.contains(elemento)) {
+                    resultado.add(elemento);
+                }
+            }
         }
-    }
-
-    for (Integer elemento : l2) {
-        if (!resultado.contains(elemento)) {
-            resultado.add(elemento);
+        if (l2 != null) {
+            for (Integer elemento : l2) {
+                if (!resultado.contains(elemento)) {
+                    resultado.add(elemento);
+                }
+            }
         }
+        return resultado;
     }
-
-    return resultado;
-}
-
-    
-
-
 
     // d. Método que retorna uma lista de elementos repetidos de l
     public static ArrayList<Integer> listRepeat(ArrayList<Integer> l) {
@@ -68,10 +65,7 @@ public class praticaGit {
         return repetidos;
     }
 
-
-
-}
-// c. Método que retorna o número de elementos repetidos em l
+    // c. Método que retorna o número de elementos repetidos em l
     public int nroRepeat(ArrayList<Integer> l) {
         if (l == null) return 0;
         
@@ -79,7 +73,6 @@ public class praticaGit {
         Set<Integer> repetidos = new HashSet<>();
         
         for (Integer num : l) {
-            // Se não conseguiu adicionar aos vistos, é porque já existe (é repetido)
             if (!vistos.add(num)) {
                 repetidos.add(num);
             }
@@ -93,10 +86,10 @@ public class praticaGit {
         if (l1 == null || l2 == null) return resultado;
         
         for (Integer elemento : l1) {
-            // Verifica se está na l2 e se ainda não foi adicionado ao resultado
             if (l2.contains(elemento) && !resultado.contains(elemento)) {
                 resultado.add(elemento);
             }
         }
         return resultado;
     }
+} 
